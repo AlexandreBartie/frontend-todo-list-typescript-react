@@ -2,14 +2,14 @@ import React, { ReactElement } from "react"
 
 import { Grid } from "@mui/material"
 
-import { TaskArea } from "../../components/taskArea/taskArea"
-import { SideBar } from "../../components/sidebar/sidebar"
+import { UXTaskArea } from "../../components/taskArea/taskArea"
+import { UXSideBar } from "../../components/sidebar/sidebar"
 
-export const DashBoard = (): ReactElement => {
+export const UXDashBoard = (): ReactElement => {
   return (
     <Grid container minHeight="100vh" p={0} m={0}>
-      <TaskArea/>
-      <SideBar/>
+      <UXTaskArea/>
+      <UXSideBar/>
     </Grid>
   )
 }

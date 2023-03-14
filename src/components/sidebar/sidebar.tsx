@@ -2,12 +2,12 @@ import React, { ReactElement } from "react"
 
 import { Grid, SxProps, Theme } from "@mui/material"
 
-import { Profile } from "../../elements/profile/profile"
+import { UXProfile } from "../../elements/profile/profile"
 
-export const SideBar = (): ReactElement => {
+export const UXSideBar = (): ReactElement => {
   return (
     <Grid item md={4} sx={sideBarTheme()}>
-      <Profile />
+      <UXProfile name = 'Alexandre Bartie' />
     </Grid>
   )
 }

@@ -1,9 +1,39 @@
-import React, { ReactElement } from "react"
+import React, { FC, ReactElement } from "react"
 
 import { Avatar, Box, SxProps, Theme, Typography } from "@mui/material"
 
-export const Profile = (): ReactElement => {
-  return (
+interface IUXProfile {
+  name: string,
+}
+
+// export type ProfileUXPropTypes = { data: Profile }
+
+// export function UXProfile({ props: ProfileUXPropTypes }): JSX.Element {
+
+export const UXProfile: FC<IUXProfile> = (props): ReactElement => {
+
+  function partsName(): string[] {
+    return props.name.trim().split(/\s+/)
+  }
+
+  function partName(index: number): string {
+    return partsName()[index-1]
+  }
+
+  function firstName(): string {
+    return partName(1)
+  }
+
+  function lastName(): string {
+    return partName(partsName.length)
+  }
+
+  function sigla(): string {
+    console.log(lastName())
+    return 'xx'
+  }
+
+    return (
     <Box
       display="flex"
       flexDirection="column"
@@ -12,11 +42,11 @@ export const Profile = (): ReactElement => {
     >
       <Avatar sx={avatarTheme()}>
         <Typography variant="h4" color="text.primary">
-          AB
+          {sigla()}
         </Typography>
       </Avatar>
       <Typography variant="h6" color="text.primary">
-        Welcome, Alexandre
+        {`Welcome, ${firstName()}`}
       </Typography>
       <Typography variant="body1" color="text.primary">
         This is your personal todo-list

@@ -2,7 +2,7 @@ import React, { ReactElement } from "react"
 
 import { Avatar, Box, SxProps, Theme, Typography } from "@mui/material"
 
-import { Profile } from "../../business/security/users/profile"
+import { Profile } from "../../../business/security/users/profile"
 
 export type UXProfile_PropTypes = { profile: Profile }
 

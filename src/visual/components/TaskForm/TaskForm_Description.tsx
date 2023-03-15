@@ -1,8 +1,10 @@
 import React, { ReactElement } from "react"
 
 import { TextField } from "@mui/material"
+import { UXTaskForm_PropTypes } from "./TaskForm"
 
-export function UXTaskForm_Description(): ReactElement {
+export function UXTaskForm_Description(props: UXTaskForm_PropTypes): ReactElement {
+  const { form } = props
   return (
     <TextField
       id="description"
@@ -14,6 +16,7 @@ export function UXTaskForm_Description(): ReactElement {
       multiline
       rows={4}
       fullWidth
+      disabled={form.disable}
     ></TextField>
   )
 }

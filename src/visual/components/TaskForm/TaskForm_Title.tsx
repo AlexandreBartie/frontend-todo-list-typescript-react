@@ -2,7 +2,10 @@ import React, { ReactElement } from "react"
 
 import { TextField } from "@mui/material"
 
-export function UXTaskForm_Title(): ReactElement {
+import { UXTaskForm_PropTypes } from "./TaskForm"
+
+export function UXTaskForm_Title(props: UXTaskForm_PropTypes): ReactElement {
+  const { form } = props
   return (
     <TextField
       id="title"
@@ -12,6 +15,7 @@ export function UXTaskForm_Title(): ReactElement {
       size="small"
       name="title"
       fullWidth
+      disabled={form.disable}
     ></TextField>
   )
 }

@@ -4,12 +4,16 @@ import { Box, Typography } from "@mui/material"
 import { UXTaskForm_Title } from "./TaskForm_Title"
 import { UXTaskForm_Description } from "./TaskForm_Description"
 
-import { Task } from "../../business/core/task"
+import { TaskForm } from "./TaskFormController"
+
 import { Stack } from "@mui/system"
+import { UXTaskForm_Date } from "./TaskForm_Date"
 
-export type UXTaskForm_PropTypes = { task: Task }
+export type UXTaskForm_PropTypes = { form: TaskForm }
 
-export function UXTaskForm(): ReactElement {
+export function UXTaskForm(props: UXTaskForm_PropTypes): ReactElement {
+  const { form } = props
+
   return (
     <Box
       display="flex"
@@ -24,8 +28,9 @@ export function UXTaskForm(): ReactElement {
         <Typography variant="body1" color="text.primary">
           Create a Task
         </Typography>
-        <UXTaskForm_Title />
-        <UXTaskForm_Description />
+        <UXTaskForm_Title form={form} />
+        <UXTaskForm_Description form={form} />
+        <UXTaskForm_Date form={form} />
       </Stack>
     </Box>
   )

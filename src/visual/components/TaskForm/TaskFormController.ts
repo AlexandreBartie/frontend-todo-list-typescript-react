@@ -8,9 +8,12 @@ export enum actionTaskForm
 
 export class TaskForm {
 
-    task!: Task
+    task = new Task()
     action = actionTaskForm.view
 
     get disable(): boolean { return this.action === actionTaskForm.view }
+
+    setTask(task: Task)
+    { this.task = task}
   
 }

@@ -4,9 +4,12 @@ import { Avatar, Box, SxProps, Theme, Typography } from "@mui/material"
 
 import { Profile } from "../../business/security/users/profile"
 
-export type ProfileUXPropTypes = { profile: Profile }
+export type UXProfile_PropTypes = { profile: Profile }
 
-export function UXProfile(data: ProfileUXPropTypes): ReactElement {
+export function UXProfile(props: UXProfile_PropTypes): ReactElement {
+
+  const { profile } = props
+
   return (
     <Box
       display="flex"
@@ -16,11 +19,11 @@ export function UXProfile(data: ProfileUXPropTypes): ReactElement {
     >
       <Avatar sx={avatarTheme()}>
         <Typography variant="h4" color="text.primary">
-          {data.profile.sigla}
+          {profile.sigla}
         </Typography>
       </Avatar>
       <Typography variant="h6" color="text.primary">
-        {`Welcome, ${data.profile.firstName}`}
+        {`Welcome, ${profile.firstName}`}
       </Typography>
       <Typography variant="body1" color="text.primary">
         This is your personal todo-list

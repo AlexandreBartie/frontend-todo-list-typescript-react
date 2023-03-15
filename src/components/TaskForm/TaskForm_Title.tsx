@@ -2,17 +2,15 @@ import React, { ReactElement } from "react"
 
 import { TextField } from "@mui/material"
 
-export function UXCreateTaskDescription(): ReactElement {
+export function UXTaskForm_Title(): ReactElement {
   return (
     <TextField
-      id="description"
-      name="description"
-      label="Description"
-      placeholder="Description"
+      id="title"
+      label="Task Title"
+      placeholder="write a short title to define this task."
       variant="outlined"
       size="small"
-      multiline
-      rows={4}
+      name="title"
       fullWidth
     ></TextField>
   )

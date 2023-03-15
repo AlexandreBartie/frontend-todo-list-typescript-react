@@ -13,14 +13,10 @@ export class Profile {
     return this.parts[this.parts.length - 1]
   }
 
-  get sigla(): string {
-    return this.firstName[0] + this.lastName[0]
-    
-    // if (this.firstName) {
-    //   if (this.lastName) return this.firstName[0] + this.lastName[0]
-    //   else if (this.firstName.length >= 2) return this.firstName[0] + this.firstName[1]
-    //   else this.firstName[0]
-    // } return "--"
+  get sigla(): string {   
+    if (this.firstName) {
+      if (this.lastName) return this.firstName[0] + this.lastName[0]
+    } return "--"
   }
 
   private get parts(): string[] {

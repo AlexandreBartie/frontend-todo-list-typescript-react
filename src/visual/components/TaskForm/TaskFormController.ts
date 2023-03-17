@@ -1,4 +1,5 @@
-import { Task } from "../../../business/core/task";
+import { TasksManager } from "../../../business/core/manager";
+import { Task } from "../../../business/core/task"
 
 export enum actionTaskForm
 {
@@ -8,12 +9,20 @@ export enum actionTaskForm
 
 export class TaskForm {
 
-    task = new Task()
-    action = actionTaskForm.view
+    readonly manager: TasksManager
 
-    get disable(): boolean { return this.action === actionTaskForm.view }
+    readonly action = actionTaskForm.edit
+
+    public task = new Task()
+
+    get disabled(): boolean { return this.action !== actionTaskForm.edit }
 
     setTask(task: Task)
     { this.task = task}
+
+    constructor(manager: TasksManager)
+    {
+        this.manager = manager
+    }
   
 }

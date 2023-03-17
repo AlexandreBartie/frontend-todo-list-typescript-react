@@ -15,7 +15,7 @@ export function UXTaskForm_Title(props: UXTaskForm_PropTypes): ReactElement {
       size="small"
       name="title"
       fullWidth
-      disabled={form.disable}
+      disabled={form.disabled}
     ></TextField>
   )
 }

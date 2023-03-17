@@ -13,8 +13,6 @@ export function UXTaskForm_Date(props: UXTaskForm_PropTypes): ReactElement {
 
   const [date, setDate] = useState<Date | null>(form.task.date)
 
-
-
   function onDataChange(newDate: Date | null) {
     if (newDate) {
       setDate(newDate)
@@ -29,6 +27,7 @@ export function UXTaskForm_Date(props: UXTaskForm_PropTypes): ReactElement {
           label="Task Date"
           format="dd/MMM/yyyy"
           value={date}
+          disabled={form.disabled}
           onChange={onDataChange}
         ></DesktopDatePicker>
       </LocalizationProvider>

@@ -16,7 +16,7 @@ export function UXTaskForm_Description(props: UXTaskForm_PropTypes): ReactElemen
       multiline
       rows={4}
       fullWidth
-      disabled={form.disable}
+      disabled={form.disabled}
     ></TextField>
   )
 }

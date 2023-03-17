@@ -7,14 +7,18 @@ import { UXTaskForm } from "../../components/TaskForm/TaskForm"
 
 import { TaskForm } from "../../components/TaskForm/TaskFormController"
 
-import { Profile } from "../../../business/security/users/profile"
+import { TasksManager } from "../../../business/core/manager"
 
-export function UXSideBar(): ReactElement {
+export type UXSideBar_PropTypes = { manager: TasksManager }
+
+export function UXSideBar(props: UXSideBar_PropTypes): ReactElement {
+
+  const { manager } = props
 
   return (
     <Grid item md={4} sx={sideBarTheme()}>
-      <UXProfile profile={new Profile("Carlos Alberto Bartie")} />
-      <UXTaskForm form={new TaskForm()}/>
+      <UXProfile profile={manager.getProfile()} />
+      <UXTaskForm form={new TaskForm(manager)}/>
     </Grid>
   )
 }

@@ -8,7 +8,7 @@ export type UXTaskArea_PropTypes = { form: TaskArea }
 export function UXTaskArea_List(props: UXTaskArea_PropTypes): ReactElement {
   const { form } = props
 
-  console.log(form.countTodo)
+  console.log(form.manager.enum.statusList.name)
 
   return (
     <>

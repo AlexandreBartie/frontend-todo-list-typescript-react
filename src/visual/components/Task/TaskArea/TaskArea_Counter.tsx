@@ -9,7 +9,7 @@ export type UXTaskArea_PropTypes = { form: TaskArea }
 export function UXTaskArea_Counter(props: UXTaskArea_PropTypes): ReactElement {
   const { form } = props
 
-  console.log(form.countTodo)
+  const list = form.manager.enum.statusList.items
 
   return (
     <>
@@ -23,9 +23,12 @@ export function UXTaskArea_Counter(props: UXTaskArea_PropTypes): ReactElement {
         xs={12}
         mb={8}
       >
-        <UXTaskCounter />
-        <UXTaskCounter />
-        <UXTaskCounter />
+        {list.map((item) => (
+          <UXTaskCounter key={item.id} 
+            {...{ title: item.name, count: item.count, color: item.color }}
+          />
+        ))}
+
       </Grid>
     </>
   )

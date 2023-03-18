@@ -7,11 +7,13 @@ import { UXTaskForm_PropTypes } from "./TaskForm"
 export function UXTaskForm_Priority(props: UXTaskForm_PropTypes): ReactElement {
   const { form } = props
 
+  const priority = form.manager.enum.priorityList
+
   const settingsSelect = (): IUXSelectBox => {
     return {
-      name: form.manager.priority.name,
-      label: form.manager.priority.label,
-      items: form.manager.priority.options,
+      name: priority.name,
+      label: priority.label,
+      items: priority.items,
       disabled: form.disabled,
     }
   }

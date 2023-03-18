@@ -1,6 +1,6 @@
-import { List } from "../generic/optionList"
+import { EnumList, ItemEnumList } from "../generic/EnumList"
 
-export class listPriority extends List {
+export class PriorityList extends EnumList<ItemEnumList> {
   constructor() {
     super("priority", "Priority")
     this.add({ id: "1", name: "Normal" })

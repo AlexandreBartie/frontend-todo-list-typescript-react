@@ -1,5 +1,5 @@
-import { listPriority } from "../base/priority"
-import { listStatus } from "../base/status"
+import { PriorityList } from "../base/priority"
+import { StatusList } from "../base/status"
 
 import { TaskForm } from "../../visual/components/Task/TaskForm/TaskFormController"
 import { TaskArea } from "../../visual/components/Task/TaskArea/TaskAreaController"
@@ -17,11 +17,16 @@ export class TaskView {
   }
 }
 
+export class TaskEnum {
+  statusList = new StatusList()
+  priorityList = new PriorityList()
+
+}
+
 export class TaskManager {
   tasks!: Task[]
-  status = new listStatus()
-  priority = new listPriority()
 
+  enum = new TaskEnum()
   view = new TaskView(this)
 
   getProfile() {

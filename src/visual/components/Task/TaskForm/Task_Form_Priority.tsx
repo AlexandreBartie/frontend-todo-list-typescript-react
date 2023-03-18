@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 
-import {  UXSelectBox, IUXSelectBox } from "../../atomix/selectBox"
+import { UXSelectBox, IUXSelectBox } from "../../generic/selectBox"
 
 import { UXTaskForm_PropTypes } from "./TaskForm"
 
@@ -16,7 +16,5 @@ export function UXTaskForm_Priority(props: UXTaskForm_PropTypes): ReactElement {
     }
   }
 
-  return (
-    <UXSelectBox settings={settingsSelect()}/>
-  )
+  return <UXSelectBox settings={settingsSelect()} />
 }

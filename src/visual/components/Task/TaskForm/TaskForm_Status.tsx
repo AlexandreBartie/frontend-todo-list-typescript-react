@@ -1,6 +1,6 @@
 import React, { ReactElement } from "react"
 
-import {  UXSelectBox, IUXSelectBox } from "../../atomix/selectBox"
+import { UXSelectBox, IUXSelectBox } from "../../generic/selectBox"
 
 import { UXTaskForm_PropTypes } from "./TaskForm"
 
@@ -12,12 +12,9 @@ export function UXTaskForm_Status(props: UXTaskForm_PropTypes): ReactElement {
       name: form.manager.status.name,
       label: form.manager.status.label,
       disabled: form.disabled,
-      items: form.manager.status.options
+      items: form.manager.status.options,
     }
   }
 
-  return (
-    <UXSelectBox settings={settingsSelect()}/>
-  )
+  return <UXSelectBox settings={settingsSelect()} />
 }
-

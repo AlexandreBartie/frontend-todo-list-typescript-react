@@ -4,10 +4,11 @@ import { Avatar, Box, SxProps, Theme, Typography } from "@mui/material"
 
 import { Profile } from "../../../business/security/users/profile"
 
+import { format } from "date-fns"
+
 export type UXProfile_PropTypes = { profile: Profile }
 
 export function UXProfile(props: UXProfile_PropTypes): ReactElement {
-
   const { profile } = props
 
   return (
@@ -17,22 +18,22 @@ export function UXProfile(props: UXProfile_PropTypes): ReactElement {
       justifyContent="center"
       alignItems="center"
     >
-      <Avatar sx={avatarTheme()}>
+      <Avatar sx={avatarSettings()}>
         <Typography variant="h4" color="text.primary">
           {profile.sigla}
         </Typography>
       </Avatar>
       <Typography variant="h6" color="text.primary">
-        {`Welcome, ${profile.firstName}`}
+        {profile.fullName}
       </Typography>
       <Typography variant="body1" color="text.primary">
-        This is your personal todo-list
+        {format(new Date(), "PPPP")}
       </Typography>
     </Box>
   )
 }
 
-const avatarTheme = (): SxProps<Theme> => {
+const avatarSettings = (): SxProps<Theme> => {
   return {
     width: "96px",
     height: "96px",

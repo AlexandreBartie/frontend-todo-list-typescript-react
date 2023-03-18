@@ -2,23 +2,22 @@ import React, { ReactElement } from "react"
 
 import { Grid, SxProps, Theme } from "@mui/material"
 
-import { UXProfile } from "../../components/profile/profile"
-import { UXTaskForm } from "../../components/TaskForm/TaskForm"
+import { UXProfile } from "../profile/profile"
+import { UXTaskForm } from "../Task/TaskForm/TaskForm"
 
-import { TaskForm } from "../../components/TaskForm/TaskFormController"
+import { TaskForm } from "../Task/TaskForm/TaskFormController"
 
-import { TasksManager } from "../../../business/core/manager"
+import { TaskManager } from "../../../business/core/manager"
 
-export type UXSideBar_PropTypes = { manager: TasksManager }
+export type UXSideBar_PropTypes = { manager: TaskManager }
 
 export function UXSideBar(props: UXSideBar_PropTypes): ReactElement {
-
   const { manager } = props
 
   return (
     <Grid item md={4} sx={sideBarTheme()}>
       <UXProfile profile={manager.getProfile()} />
-      <UXTaskForm form={new TaskForm(manager)}/>
+      <UXTaskForm form={new TaskForm(manager)} />
     </Grid>
   )
 }

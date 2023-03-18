@@ -6,7 +6,7 @@ import CssBaseline from "@mui/material/CssBaseline"
 
 import { customTheme } from "./visual/theme/customTheme"
 
-import { UXDashBoard } from "./visual/pages/dashboard/dashboard"
+import { UXDashBoard } from "./visual/pages/Dashboard/Dashboard"
 
 const App: FC = (): ReactElement => {
   return (

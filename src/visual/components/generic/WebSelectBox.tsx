@@ -2,9 +2,9 @@ import React, { ReactElement } from "react"
 
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material"
 
-export type UXSelectBox_PropTypes = { settings: IUXSelectBox }
+export type WebSelectBox_PropTypes = { settings: IWebSelectBox }
 
-export function UXSelectBox(props: UXSelectBox_PropTypes): ReactElement {
+export function WebSelectBox(props: WebSelectBox_PropTypes): ReactElement {
   const { name, label, value, items, disabled } = props.settings
   return (
     <FormControl fullWidth size="small">
@@ -27,15 +27,15 @@ export function UXSelectBox(props: UXSelectBox_PropTypes): ReactElement {
   )
 }
 
-export interface IUXSelectBox {
+export interface IWebSelectBox{
   name: string
   label: string
-  items: IUXSelectBoxItem[]
   value?: string
   disabled?: boolean
+  items: IWebSelectBoxItem[]
 }
 
-export interface IUXSelectBoxItem {
+export interface IWebSelectBoxItem {
   id: string
   name: string
 }

@@ -6,9 +6,9 @@ import { Profile } from "../../../business/security/users/profile"
 
 import { format } from "date-fns"
 
-export type UXProfile_PropTypes = { profile: Profile }
+export type IUXProfile = { profile: Profile }
 
-export function UXProfile(props: UXProfile_PropTypes): ReactElement {
+export function UXProfile(props: IUXProfile): ReactElement {
   const { profile } = props
 
   return (

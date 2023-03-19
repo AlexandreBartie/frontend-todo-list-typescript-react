@@ -1,9 +1,9 @@
 import React, { ReactElement } from "react"
 
 import { TextField } from "@mui/material"
-import { UXTaskForm_PropTypes } from "./TaskForm"
+import { IUXTaskForm } from "./TaskForm"
 
-export function UXTaskForm_Description(props: UXTaskForm_PropTypes): ReactElement {
+export function UXTaskForm_Description(props: IUXTaskForm): ReactElement {
   const { form } = props
   return (
     <TextField

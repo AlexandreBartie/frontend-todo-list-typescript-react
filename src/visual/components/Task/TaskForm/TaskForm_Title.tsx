@@ -2,9 +2,9 @@ import React, { ReactElement } from "react"
 
 import { TextField } from "@mui/material"
 
-import { UXTaskForm_PropTypes } from "./TaskForm"
+import { IUXTaskForm } from "./TaskForm"
 
-export function UXTaskForm_Title(props: UXTaskForm_PropTypes): ReactElement {
+export function UXTaskForm_Title(props: IUXTaskForm): ReactElement {
   const { form } = props
   return (
     <TextField

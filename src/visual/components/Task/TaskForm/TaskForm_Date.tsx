@@ -4,11 +4,9 @@ import { LocalizationProvider } from "@mui/x-date-pickers"
 import { DesktopDatePicker } from "@mui/x-date-pickers/DesktopDatePicker"
 import { AdapterDateFns } from "@mui/x-date-pickers/AdapterDateFns"
 
-import { UXTaskForm_PropTypes } from "./TaskForm"
+import { IUXTaskForm } from "./TaskForm"
 
-
-export function UXTaskForm_Date(props: UXTaskForm_PropTypes): ReactElement {
-
+export function UXTaskForm_Date(props: IUXTaskForm): ReactElement {
   const { form } = props
 
   const [date, setDate] = useState<Date | null>(form.task.date)

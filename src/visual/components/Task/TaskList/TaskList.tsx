@@ -1,14 +1,15 @@
 import React, { ReactElement } from "react"
 
 import { Box, Grid } from "@mui/material"
-import { TaskArea } from "./TaskAreaController"
 
-export type UXTaskArea_PropTypes = { form: TaskArea }
+import { AppClient } from "../../../../business/core/app"
 
-export function UXTaskArea_List(props: UXTaskArea_PropTypes): ReactElement {
-  const { form } = props
+export type IUXTaskList = { app: AppClient }
 
-  console.log(form.manager.enum.statusList.name)
+export function UXTaskList(props: IUXTaskList): ReactElement {
+  const { app } = props
+
+  console.log(app.domain.statusList.name)
 
   return (
     <>

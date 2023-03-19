@@ -1,15 +1,15 @@
 import React, { ReactElement } from "react"
 
-import { UXSelectBox, IUXSelectBox } from "../../generic/selectBox"
+import { IWebSelectBox, WebSelectBox } from "../../generic/WebSelectBox"
 
-import { UXTaskForm_PropTypes } from "./TaskForm"
+import { IUXTaskForm } from "./TaskForm"
 
-export function UXTaskForm_Status(props: UXTaskForm_PropTypes): ReactElement {
+export function UXTaskForm_Status(props: IUXTaskForm): ReactElement {
   const { form } = props
 
-  const status = form.manager.enum.statusList
+  const status = form.app.domain.statusList
 
-  const settingsSelect = (): IUXSelectBox => {
+  const settingsSelect = (): IWebSelectBox => {
     return {
       name: status.name,
       label: status.label,
@@ -18,5 +18,5 @@ export function UXTaskForm_Status(props: UXTaskForm_PropTypes): ReactElement {
     }
   }
 
-  return <UXSelectBox settings={settingsSelect()} />
+  return <WebSelectBox settings={settingsSelect()} />
 }

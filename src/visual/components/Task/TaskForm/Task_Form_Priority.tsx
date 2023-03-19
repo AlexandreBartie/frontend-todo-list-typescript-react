@@ -1,15 +1,15 @@
 import React, { ReactElement } from "react"
 
-import { UXSelectBox, IUXSelectBox } from "../../generic/selectBox"
+import { IWebSelectBox, WebSelectBox } from "../../generic/WebSelectBox"
 
-import { UXTaskForm_PropTypes } from "./TaskForm"
+import { IUXTaskForm } from "./TaskForm"
 
-export function UXTaskForm_Priority(props: UXTaskForm_PropTypes): ReactElement {
+export function UXTaskForm_Priority(props: IUXTaskForm): ReactElement {
   const { form } = props
 
-  const priority = form.manager.enum.priorityList
+  const priority = form.app.domain.priorityList
 
-  const settingsSelect = (): IUXSelectBox => {
+  const settingsSelect = (): IWebSelectBox => {
     return {
       name: priority.name,
       label: priority.label,
@@ -18,5 +18,5 @@ export function UXTaskForm_Priority(props: UXTaskForm_PropTypes): ReactElement {
     }
   }
 
-  return <UXSelectBox settings={settingsSelect()} />
+  return <WebSelectBox settings={settingsSelect()} />
 }

@@ -6,13 +6,13 @@ import CssBaseline from "@mui/material/CssBaseline"
 
 import { customTheme } from "./visual/theme/customTheme"
 
-import { UXDashBoard } from "./visual/pages/Dashboard/Dashboard"
+import { UXTaskPage} from "./visual/pages/TaskPage/TaskPage"
 
 const App: FC = (): ReactElement => {
   return (
     <ThemeProvider theme={customTheme}>
       <CssBaseline />
-      <UXDashBoard/>
+      <UXTaskPage/>
     </ThemeProvider>
   )
 }

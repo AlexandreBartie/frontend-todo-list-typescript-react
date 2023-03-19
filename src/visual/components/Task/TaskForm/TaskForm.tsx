@@ -11,12 +11,9 @@ import { UXTaskForm_Priority } from "./Task_Form_Priority"
 
 import { TaskForm } from "./TaskFormController"
 
+export type IUXTaskForm = { form: TaskForm }
 
-
-
-export type UXTaskForm_PropTypes = { form: TaskForm }
-
-export function UXTaskForm(props: UXTaskForm_PropTypes): ReactElement {
+export function UXTaskForm(props: IUXTaskForm): ReactElement {
   const { form } = props
 
   return (

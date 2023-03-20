@@ -4,7 +4,7 @@ import { Avatar, Box, SxProps, Theme, Typography } from "@mui/material"
 
 import { Profile } from "../../../business/security/users/profile"
 
-import { format } from "date-fns"
+import { formatToday } from "../../../library/date/formatDate"
 
 export type IUXProfile = { profile: Profile }
 
@@ -18,7 +18,7 @@ export function UXProfile(props: IUXProfile): ReactElement {
       justifyContent="center"
       alignItems="center"
     >
-      <Avatar sx={avatarSettings()}>
+      <Avatar sx={profileSettings()}>
         <Typography variant="h4" color="text.primary">
           {profile.sigla}
         </Typography>
@@ -27,13 +27,13 @@ export function UXProfile(props: IUXProfile): ReactElement {
         {profile.fullName}
       </Typography>
       <Typography variant="body1" color="text.primary">
-        {format(new Date(), "PPPP")}
+        {formatToday()}
       </Typography>
     </Box>
   )
 }
 
-const avatarSettings = (): SxProps<Theme> => {
+const profileSettings = (): SxProps<Theme> => {
   return {
     width: "96px",
     height: "96px",

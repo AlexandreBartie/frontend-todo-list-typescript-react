@@ -15,7 +15,7 @@ export function UXTaskCounter(props: UXTaskCounter_PropTypes): ReactElement {
         justifyContent="center"
         alignItems="center"
       >
-        <Avatar sx={avatarSettings(color)}>
+        <Avatar sx={taskCounterSettings(color)}>
           <Typography color="#ffffff" variant="h4">
             {count}
           </Typography>
@@ -33,7 +33,7 @@ export function UXTaskCounter(props: UXTaskCounter_PropTypes): ReactElement {
   )
 }
 
-const avatarSettings = (color: string): SxProps<Theme> => {
+const taskCounterSettings = (color: string): SxProps<Theme> => {
   return {
     backgroundColor: "transparent",
     width: "96px",

@@ -2,10 +2,8 @@ import React, { ReactElement } from "react"
 
 import { FormControl, InputLabel, MenuItem, Select } from "@mui/material"
 
-export type WebSelectBox_PropTypes = { settings: IWebSelectBox }
-
-export function WebSelectBox(props: WebSelectBox_PropTypes): ReactElement {
-  const { name, label, value, items, disabled } = props.settings
+export function WebSelectBox(props: IWebSelectBox): ReactElement {
+  const { name, label, value, items, disabled } = props
   return (
     <FormControl fullWidth size="small">
       <InputLabel id={`${name}-label-id`}>{label}</InputLabel>

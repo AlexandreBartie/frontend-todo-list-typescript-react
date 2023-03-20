@@ -4,7 +4,7 @@ import { Box, Grid } from "@mui/material"
 
 import { AppClient } from "../../../business/core/app"
 import { UXTaskSummary } from "../../components/Task/TaskSummary/TaskSummary"
-import { UXTaskList } from "../../components/Task/TaskList/TaskList"
+import { UXTaskView} from "../../components/Task/TaskView/TaskView"
 
 export type IUXTaskPage_Central = { app: AppClient }
 
@@ -18,7 +18,7 @@ export function UXTaskPage_Central(props: IUXTaskPage_Central): ReactElement {
         </Box>
         <Grid container display="flex" justifyContent="center">
           <UXTaskSummary list={app.domain.statusList.items} />
-          <UXTaskList app={app} />
+          <UXTaskView tasks={app.tasks} />
         </Grid>
       </Grid>
     </>

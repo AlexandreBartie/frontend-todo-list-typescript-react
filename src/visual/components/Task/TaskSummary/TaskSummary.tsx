@@ -21,7 +21,6 @@ export function UXTaskSummary(props: IUXTaskSummary): ReactElement {
         md={10}
         xs={12}
         mb={8}
-        // sx={summarySettings()}
       >
         {list.map((item) => (
           <UXTaskCounter
@@ -34,16 +33,3 @@ export function UXTaskSummary(props: IUXTaskSummary): ReactElement {
   )
 }
 
-// const summarySettings = (): SxProps<Theme> => {
-//   return {
-//     // backgroundColor: "transparent",
-//     // width: "96px",
-//     // height: "96px",
-//     // margin: '10px',
-//     // marginTop: '10px',
-//     // marginBottom: '10px',
-//     padding: '30px',
-//     // border: "3px solid",
-//     // borderColor: color
-//   }
-// }

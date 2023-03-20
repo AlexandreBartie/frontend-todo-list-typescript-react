@@ -2,14 +2,14 @@ import React, { ReactElement } from "react"
 
 import { Box, Grid } from "@mui/material"
 
-import { AppClient } from "../../../../business/core/app"
+import { TaskList } from "../../../../business/core/task"
 
-export type IUXTaskList = { app: AppClient }
+export type IUXTaskView = { tasks: TaskList }
 
-export function UXTaskList(props: IUXTaskList): ReactElement {
-  const { app } = props
+export function UXTaskView(props: IUXTaskView): ReactElement {
+  const { tasks } = props
 
-  console.log(app.domain.statusList.name)
+  console.log(tasks.all.length)
 
   return (
     <>

@@ -34,6 +34,6 @@ export interface IWebSelectBox{
 }
 
 export interface IWebSelectBoxItem {
-  id: string
+  id: number
   name: string
 }

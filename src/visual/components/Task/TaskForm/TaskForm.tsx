@@ -16,6 +16,9 @@ export type IUXTaskForm = { form: TaskForm }
 export function UXTaskForm(props: IUXTaskForm): ReactElement {
   const { form } = props
 
+  if (form.task === null)
+  return <></>
+  
   return (
     <Box
       display="flex"

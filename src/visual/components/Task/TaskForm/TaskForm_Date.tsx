@@ -9,12 +9,16 @@ import { IUXTaskForm } from "./TaskForm"
 export function UXTaskForm_Date(props: IUXTaskForm): ReactElement {
   const { form } = props
 
-  const [date, setDate] = useState<Date | null>(form.task.date)
+  const task = form.task
+
+  if (task === null) return(<></>)
+
+  const [date, setDate] = useState<Date | null>(task.date)
 
   function onDataChange(newDate: Date | null) {
     if (newDate) {
       setDate(newDate)
-      form.task.date = newDate
+      task.date = newDate
     }
   }
 

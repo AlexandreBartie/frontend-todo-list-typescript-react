@@ -1,21 +1,61 @@
-import { EnumList, ItemEnumList } from "../generic/EnumList"
+import { EnumList, IItemEnumList, ItemEnumList } from "../generic/EnumList"
 
-export class Status extends ItemEnumList {
+export enum eStatus {
+  todo = 1,
+  doing = 2,
+  done = 3,
+}
+
+export interface IStatus extends IItemEnumList {
+  color: string
+  count: number
+}
+
+export class Status extends ItemEnumList implements IStatus {
   readonly color: string
   readonly count: number
 
-  constructor(id: string, name: string, color: string, count: number) {
+  get isDoing(): boolean {
+    const x = eStatus.doing as number
+    return this.id == x
+  }
+
+  get isDone(): boolean {
+    const x = eStatus.done as number
+    return this.id == x
+  }
+
+  constructor(id: eStatus, name: string, color: string, count: number) {
     super(id, name)
     this.color = color
     this.count = count
   }
 }
 
-export class StatusList extends EnumList<Status> {
+export class StatusList extends EnumList<Status, IStatus> {
   constructor() {
     super("status", "Status")
-    this.add({ id: "1", name: "Todo", count: 16, color: "error.light" })
-    this.add({ id: "2", name: "Doing", count: 9, color: "warning.light" })
-    this.add({ id: "3", name: "Done", count: 7, color: "success.light" })
+    this.add({
+      id: eStatus.todo,
+      name: "Todo",
+      count: 16,
+      color: "error.light",
+    })
+    this.add({
+      id: eStatus.doing,
+      name: "Doing",
+      count: 9,
+      color: "warning.light",
+    })
+    this.add({
+      id: eStatus.done,
+      name: "Done",
+      count: 7,
+      color: "success.light",
+    })
+  }
+
+  add(item: IStatus) {
+    super.add(item)
   }
 }

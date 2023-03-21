@@ -2,7 +2,7 @@ import { AppClient } from "../../../../business/core/app"
 
 import { Priority } from "../../../../business/base/priority"
 import { Status } from "../../../../business/base/status"
-import { Task } from "../../../../business/core/task"
+import { Task } from "../../../../business/base/task"
 
 export enum actionTaskForm {
   view = "view",
@@ -14,7 +14,11 @@ export class TaskForm {
 
   readonly action = actionTaskForm.edit
 
-  public task = new Task()
+  get task(): Task {
+    if (this.app.tasks.current)
+    return this.app.tasks.current
+    return new Task(this.app)
+  }
 
   get statusList(): Status[] {
     return this.app.domain.statusList.items
@@ -25,10 +29,6 @@ export class TaskForm {
 
   get disabled(): boolean {
     return this.action !== actionTaskForm.edit
-  }
-
-  setTask(task: Task) {
-    this.task = task
   }
 
   constructor(app: AppClient) {

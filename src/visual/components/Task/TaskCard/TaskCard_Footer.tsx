@@ -7,6 +7,10 @@ import { WebSwitch } from "../../generic/WebSwitch"
 
 export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
   const { task } = props
+
+
+
+
   return (
     <>
       <Box
@@ -17,7 +21,8 @@ export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
       >
         <WebSwitch
           {...{
-            label: task.title
+            label: task.status.name + ':' + task.status.id.toString(),
+            value: task.status.isDoing
           }}
 
         />

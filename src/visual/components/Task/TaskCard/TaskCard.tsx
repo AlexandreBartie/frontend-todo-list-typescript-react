@@ -2,7 +2,7 @@ import React, { ReactElement } from "react"
 
 import { Box, SxProps, Theme } from "@mui/material"
 
-import { Task } from "../../../../business/core/task"
+import { Task } from "../../../../business/base/task"
 import { UXTaskCard_Header } from "./TaskCard_Header"
 import { UXTaskCard_Description } from "./TaskCard_Description"
 import { UXTaskCard_Footer } from "./TaskCard_Footer"
@@ -18,7 +18,7 @@ export function UXTaskCard(props: IUXTaskCard): ReactElement {
         display="flex"
         width="100%"
         justifyContent="flex-start"
-        flexDirection='column'
+        flexDirection="column"
         mb={2}
         p={4}
         sx={taskCardSettings()}

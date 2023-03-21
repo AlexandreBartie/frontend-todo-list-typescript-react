@@ -14,11 +14,6 @@ describe("Database", () => {
       const task1 = app.tasks.all[1]
       const task2 = app.tasks.all[2]
 
-      // if (task0.status.isDoing())
-      //    console.log('true')
-      // else
-      //    console.log('error')
-
       expect(true).toBe(task0.isDoing)
       expect(true).toBe(task1.isDoing)
       expect(false).toBe(task2.isDoing)

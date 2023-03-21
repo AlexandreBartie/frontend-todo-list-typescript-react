@@ -7,8 +7,6 @@ import { ePriority, Priority } from "./priority"
 
 import { Today } from "../../library/date/currentDate"
 
-
-
 export interface ITask extends IEntity {
   title: string
   description: string
@@ -24,12 +22,29 @@ export class Task extends Entity<Task> implements ITask {
   statusId = eStatus.todo
   priorityId = ePriority.normal
 
+  get isDoing(): boolean {
+    return this.statusId === eStatus.doing
+  }
+
+  get isDone(): boolean {
+    return this.statusId === eStatus.done
+  }
+
+  private _status!: Status
+  private _priority!: Priority
+
   get status(): Status {
-    return this.app.domain.statusList.get(this.statusId)
+    if (this._status === undefined) {
+      this._status = this.app.domain.statusList.get(this.statusId)
+    }
+    return this._status
   }
 
   get priority(): Priority {
-    return this.app.domain.statusList.get(this.priorityId)
+    if (this._priority === undefined) {
+      this._priority = this.app.domain.priorityList.get(this.priorityId)
+    }
+    return this._priority
   }
 
   set(task: ITask): Task {
@@ -42,22 +57,20 @@ export class Task extends Entity<Task> implements ITask {
     if (task.priorityId) this.priorityId = task.priorityId
 
     return this
-
   }
 }
 
 export class TaskList extends EntityList<Task> {
-
   public current!: Task | null
 
-  constructor(app: AppClient)
- {
-  super(app)
-  this.setup()
+  constructor(app: AppClient) {
+    super(app)
+    this.setup()
   }
 
-  add(data: ITask)
-  { super.addItem(new Task(this.app), data) }
+  add(data: ITask) {
+    super.addItem(new Task(this.app), data)
+  }
 
   setup() {
     this.add({
@@ -84,7 +97,5 @@ export class TaskList extends EntityList<Task> {
     })
 
     this.current = this.all[0]
-
   }
-
 }

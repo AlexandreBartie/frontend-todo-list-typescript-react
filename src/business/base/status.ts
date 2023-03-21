@@ -15,21 +15,12 @@ export class Status extends ItemEnumList implements IStatus {
   readonly color: string
   readonly count: number
 
-  get isDoing(): boolean {
-    const x = eStatus.doing as number
-    return this.id == x
-  }
-
-  get isDone(): boolean {
-    const x = eStatus.done as number
-    return this.id == x
-  }
-
   constructor(id: eStatus, name: string, color: string, count: number) {
     super(id, name)
     this.color = color
     this.count = count
   }
+
 }
 
 export class StatusList extends EnumList<Status, IStatus> {

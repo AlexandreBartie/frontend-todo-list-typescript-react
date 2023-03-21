@@ -22,7 +22,7 @@ export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
         <WebSwitch
           {...{
             label: task.status.name + ':' + task.status.id.toString(),
-            value: task.status.isDoing
+            value: task.status.isDoing()
           }}
 
         />

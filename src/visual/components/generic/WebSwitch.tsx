@@ -1,4 +1,4 @@
-import React, { ReactElement, useState } from "react"
+import React, { ReactElement } from "react"
 
 import { FormControlLabel, Switch } from "@mui/material"
 import { formatOnOff } from "../../../library/boolean/formatBoolean"

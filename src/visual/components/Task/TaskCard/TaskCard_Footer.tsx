@@ -19,10 +19,18 @@ export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
         <WebSwitch
           {...{
             label: task.status.name,
-            checked: task.isDoing
+            checked: task.isDoing,
+            // color: task.status.color
           }}
         />
-        <Button variant='contained' color='success' size='small' sx={{color:'#ffffff'}}>{task.title}</Button>
+        <Button
+          variant="contained"
+          color="success"
+          size="small"
+          sx={{ color: "#ffffff" }}
+        >
+          MAKE DONE
+        </Button>
       </Box>
     </>
   )

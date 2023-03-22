@@ -2,7 +2,7 @@ import React, { ReactElement } from "react"
 
 import { Grid, SxProps, Theme } from "@mui/material"
 
-import { UXProfile } from "../../components/profile/Profile"
+import { UXProfileView } from "../../components/profile/ProfileView"
 import { UXTaskForm } from "../../components/Task/TaskForm/TaskForm"
 
 import { AppClient } from "../../../business/core/app"
@@ -14,7 +14,7 @@ export function UXTaskPage_SideBar(props: IUXTaskPage_SideBar): ReactElement {
 
   return (
     <Grid item md={4} sx={taskSideBarTheme()}>
-      <UXProfile profile={app.profile} />
+      <UXProfileView profile={app.profile} />
       <UXTaskForm form={app.view.taskForm} />
     </Grid>
   )

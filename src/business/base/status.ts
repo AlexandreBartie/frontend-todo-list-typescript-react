@@ -1,5 +1,5 @@
 import { getColorStatus } from "../../visual/theme/colors/taskColors"
-import { EnumList, IItemEnumList, ItemEnumList } from "../generic/EnumList"
+import { EnumList, IItemEnumList, ItemEnumList } from "../generic/enumList"
 
 export enum eStatus {
   todo = 1,
@@ -14,13 +14,14 @@ export interface IStatus extends IItemEnumList {
 export class Status extends ItemEnumList implements IStatus {
   readonly count: number
 
-  get color(): string { return getColorStatus(this.id) }
+  get color(): string {
+    return getColorStatus(this.id)
+  }
 
   constructor(id: eStatus, name: string, count: number) {
     super(id, name)
     this.count = count
   }
-
 }
 
 export class StatusList extends EnumList<Status, IStatus> {

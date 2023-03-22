@@ -29,12 +29,5 @@ export function WebSwitch(props: IWebSwitch): ReactElement {
 export interface IWebSwitch {
   label: string
   checked: boolean
-  color?:
-    | "primary"
-    | "secondary"
-    | "error"
-    | "info"
-    | "success"
-    | "warning"
-    | "default"
+  color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | 'default'
 }

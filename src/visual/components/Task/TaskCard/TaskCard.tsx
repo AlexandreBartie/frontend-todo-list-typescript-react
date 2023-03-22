@@ -21,7 +21,7 @@ export function UXTaskCard(props: IUXTaskCard): ReactElement {
         flexDirection="column"
         mb={2}
         p={4}
-        sx={taskCardSettings()}
+        sx={taskCardSettings(task.priority.color)}
       >
         <UXTaskCard_Header task={task} />
         <UXTaskCard_Description task={task} />
@@ -31,12 +31,12 @@ export function UXTaskCard(props: IUXTaskCard): ReactElement {
   )
 }
 
-const taskCardSettings = (): SxProps<Theme> => {
+const taskCardSettings = (color: string): SxProps<Theme> => {
   return {
     width: "100%",
     backgroundColor: "background.paper",
     borderRadius: "28px",
     border: "1px solid",
-    borderColor: "error.light",
+    borderColor: color,
   }
 }

@@ -1,4 +1,4 @@
-import { EnumList, IItemEnumList, ItemEnumList } from "../generic/EnumList"
+import { ItemEnumList, EnumList, IItemEnumList } from "../generic/enumList"
 
 import { getColorPriority } from "../../visual/theme/colors/taskColors"
 
@@ -8,9 +8,9 @@ export enum ePriority {
 }
 
 export class Priority extends ItemEnumList {
-
-  get color(): string { return getColorPriority(this.id) }
-
+  get color(): string {
+    return getColorPriority(this.id)
+  }
 }
 export class PriorityList extends EnumList<Priority, IItemEnumList> {
   constructor() {
@@ -19,5 +19,3 @@ export class PriorityList extends EnumList<Priority, IItemEnumList> {
     this.add({ id: ePriority.high, name: "High" })
   }
 }
-
-

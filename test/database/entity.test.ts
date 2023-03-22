@@ -3,8 +3,6 @@ import { describe, expect, test } from "@jest/globals"
 
 import { AppClient } from "../../src/business/core/app"
 
-AppClient
-
 describe("Database", () => {
   test("TaskDB", async () => {
     const app = new AppClient()

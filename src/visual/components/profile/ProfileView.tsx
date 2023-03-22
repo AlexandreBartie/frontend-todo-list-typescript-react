@@ -2,13 +2,13 @@ import React, { ReactElement } from "react"
 
 import { Avatar, Box, SxProps, Theme, Typography } from "@mui/material"
 
+import { formatToday } from "../../../library/date/formatDate"
 import { Profile } from "../../../business/security/users/profile"
 
-import { formatToday } from "../../../library/date/formatDate"
 
-export type IUXProfile = { profile: Profile }
+export type IUXProfileView = { profile: Profile }
 
-export function UXProfile(props: IUXProfile): ReactElement {
+export function UXProfileView(props: IUXProfileView): ReactElement {
   const { profile } = props
 
   return (

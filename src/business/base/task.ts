@@ -92,8 +92,7 @@ export class TaskList extends EntityList<Task> {
       id: 3,
       title: "Take BreakFast",
       description: "Prepare coffe, eggs and bread to eat in the morning.",
-      date: Today(5),
-      priorityId: ePriority.low,
+      date: Today(5)
     })
 
     this.current = this.all[0]

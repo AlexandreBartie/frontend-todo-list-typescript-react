@@ -15,6 +15,10 @@ describe("Database", () => {
       expect(true).toBe(task0.isDoing)
       expect(true).toBe(task1.isDoing)
       expect(false).toBe(task2.isDoing)
+
+      expect("warning").toEqual(task0.status.color)
+      expect("warning").toEqual(task1.status.color)
+      expect("error").toEqual(task2.status.color)
     }
   })
 })

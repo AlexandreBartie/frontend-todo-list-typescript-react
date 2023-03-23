@@ -15,14 +15,21 @@ export class AppView {
 }
 
 export class AppDomain {
-  statusList = new StatusList()
-  priorityList = new PriorityList()
+  readonly statusList: StatusList
+  readonly priorityList: PriorityList
 
-  getStatus(id: eStatus): Status {
-    return this.statusList.get(id)
+  constructor()
+  {
+    this.statusList = new StatusList()
+    this.priorityList = new PriorityList()
   }
 
-  getPriority(id: ePriority): Priority {
+  public getStatus(id: eStatus): Status {
+    const x = this.statusList.get(id) 
+    return x
+  }
+
+  public getPriority(id: ePriority): Priority {
     return this.priorityList.get(id)
   }
 

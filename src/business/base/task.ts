@@ -35,14 +35,14 @@ export class Task extends Entity<Task> implements ITask {
 
   get status(): Status {
     if (this._status === undefined) {
-      this._status = this.app.domain.statusList.get(this.statusId)
+      this._status = this.app.domain.getStatus(this.statusId)
     }
     return this._status
   }
 
   get priority(): Priority {
     if (this._priority === undefined) {
-      this._priority = this.app.domain.priorityList.get(this.priorityId)
+      this._priority = this.app.domain.getPriority(this.priorityId)
     }
     return this._priority
   }
@@ -93,6 +93,21 @@ export class TaskList extends EntityList<Task> {
       title: "Take BreakFast",
       description: "Prepare coffe, eggs and bread to eat in the morning.",
       date: Today(5)
+    })
+
+    this.add({
+      id: 4,
+      title: "Read Emails",
+      description: "Reserve your 30 minutes to answer your private emails.",
+      date: Today(5),
+    })
+
+    this.add({
+      id: 5,
+      title: "Start Work",
+      description: "Use Pomodoro approach to be focused and your main target of the day.",
+      date: Today(5),
+      priorityId: ePriority.high,
     })
 
     this.current = this.all[0]

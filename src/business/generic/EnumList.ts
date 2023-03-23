@@ -1,4 +1,4 @@
-export abstract class EnumList<T extends ItemEnumList, D extends IItemEnumList> {
+export class EnumList<T extends ItemEnumList> {
   readonly name!: string
   readonly label!: string
 
@@ -14,8 +14,8 @@ export abstract class EnumList<T extends ItemEnumList, D extends IItemEnumList> 
     this.items = items
   }
 
-  public add(item: D) {
-    this.items.push(item as unknown as T)
+  public add(item: T) {
+    this.items.push(item)
   }
 
   public get(id: number): T {
@@ -31,12 +31,12 @@ export interface IItemEnumList {
   name: string
 }
 
-export abstract class ItemEnumList implements IItemEnumList {
+export class ItemEnumList implements IItemEnumList {
   readonly id: number
   readonly name: string
 
-  constructor(id: number, name: string) {
-    this.id = id
-    this.name = name
+  constructor(data: IItemEnumList) {
+    this.id = data.id
+    this.name = data.name
   }
 }

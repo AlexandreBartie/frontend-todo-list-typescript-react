@@ -9,7 +9,7 @@ export enum ePriority {
 
 export class Priority extends ItemEnumList {
   get color(): string {
-    return getColorPriority(this.id)
+    return getColorPriority(this.id, 'light')
   }
 }
 export class PriorityList extends EnumList<Priority> {

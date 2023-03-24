@@ -1,6 +1,6 @@
 import { EnumList, IItemEnumList, ItemEnumList } from "../generic/enumList"
 
-import { getColorStatus } from "../../visual/theme/taskColors"
+import { ColorBase, getColorStatus, getBaseColorStatus } from "../../visual/theme/taskColors"
 import { AppClient } from "../core/app"
 
 export enum eStatus {
@@ -28,7 +28,11 @@ export class Status extends ItemEnumList {
   }
 
   get color(): string {
-    return getColorStatus(this.id)
+    return getColorStatus(this.id, 'light')
+  }
+
+  get colorBase(): ColorBase {
+    return getBaseColorStatus(this.id)
   }
 
 }

@@ -1,10 +1,12 @@
 import { ePriority } from "../../business/base/priority"
 import { eStatus } from "../../business/base/status"
 
-// export type Color = 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | 'default'
+export type ColorBase = 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | 'default'
 
-export function getColorStatus(id: number): string {
-  let color: string
+export type ColorTone = 'light' | 'dark'
+
+export function getBaseColorStatus(id: number): ColorBase {
+  let color: ColorBase
 
   switch (id) {
     case eStatus.todo:
@@ -23,10 +25,15 @@ export function getColorStatus(id: number): string {
       return "default"
   }
 
-  return color + ".light"
+  return color
 }
 
-export function getColorPriority(id: number): string {
+export function getColorStatus(id: number, tone: ColorTone): string {
+  const base = getBaseColorStatus(id)
+  return `${base}.${tone}`
+}
+
+export function getColorPriority(id: number, tone: ColorTone): string {
   let color: string
 
   switch (id) {
@@ -42,5 +49,5 @@ export function getColorPriority(id: number): string {
       return "default"
   }
 
-  return color + ".light"
+  return `${color}.${tone}`
 }

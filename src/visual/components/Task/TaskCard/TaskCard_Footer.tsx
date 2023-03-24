@@ -20,7 +20,7 @@ export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
           {...{
             label: task.status.name,
             checked: task.isDoing,
-            color: 'warning',
+            color: task.status.colorBase,
           }}
         />
         <Button

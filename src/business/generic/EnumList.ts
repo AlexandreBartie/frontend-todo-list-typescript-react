@@ -1,3 +1,8 @@
+export interface IItemEnumList {
+  id: number
+  name: string
+}
+
 export class EnumList<T extends ItemEnumList> {
   readonly name!: string
   readonly label!: string
@@ -26,14 +31,11 @@ export class EnumList<T extends ItemEnumList> {
     return this.items[0]
   }
 }
-export interface IItemEnumList {
-  id: number
-  name: string
-}
 
 export class ItemEnumList implements IItemEnumList {
   readonly id: number
   readonly name: string
+
 
   constructor(data: IItemEnumList) {
     this.id = data.id

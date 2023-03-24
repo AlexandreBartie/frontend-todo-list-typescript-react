@@ -118,6 +118,16 @@ export class TaskList extends EntityList<Task> {
     this.add(new TaskFactory().build())
   }
 
+  counter(statusId: eStatus): number {
+    let count = 0
+    this.all.forEach((item) => {
+      if (item.statusId === statusId) {
+        count++
+      }
+    })
+    return count
+  }
+
   add(data: ITask | ITask[]) {
     if (!Array.isArray(data)) {
       data = [data]

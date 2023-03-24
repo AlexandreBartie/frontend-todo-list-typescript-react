@@ -1,6 +1,7 @@
 import { EnumList, IItemEnumList, ItemEnumList } from "../generic/enumList"
 
 import { getColorStatus } from "../../visual/theme/taskColors"
+import { AppClient } from "../core/app"
 
 export enum eStatus {
   todo = 1,
@@ -12,40 +13,48 @@ export interface IStatus extends IItemEnumList {
   count: number
 }
 
-export class Status extends ItemEnumList implements IStatus {
-  readonly count: number
+export class Status extends ItemEnumList {
+
+  readonly app: AppClient
+
+  constructor(app: AppClient, data: IItemEnumList)
+  {
+    super(data)
+    this.app = app
+  }
+
+  get counter(): number {
+    return this.app.tasks.counter(this.id)
+  }
 
   get color(): string {
     return getColorStatus(this.id)
   }
 
-  constructor(data: IStatus) {
-    super(data)
-    this.count = data.count
-  }
 }
 
 export class StatusList extends EnumList<Status> {
-  constructor() {
+  
+  readonly app: AppClient
+
+  constructor(app: AppClient) {
     super("status", "Status")
+    this.app = app
     this.add({
       id: eStatus.todo,
       name: "Todo",
-      count: 16,
     })
     this.add({
       id: eStatus.doing,
       name: "Doing",
-      count: 9,
     })
     this.add({
       id: eStatus.done,
       name: "Done",
-      count: 7,
     })
   }
 
-  add(item: IStatus) {
-    super.add(new Status(item))
+  add(item: IItemEnumList) {
+    super.add(new Status(this.app, item))
   }
 }

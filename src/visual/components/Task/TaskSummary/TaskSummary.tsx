@@ -25,7 +25,7 @@ export function UXTaskSummary(props: IUXTaskSummary): ReactElement {
         {list.map((item) => (
           <UXTaskCounter
             key={item.id}
-            {...{ title: item.name, count: item.count, color: item.color }}
+            {...{ title: item.name, count: item.counter, color: item.color }}
           />
         ))}
       </Grid>

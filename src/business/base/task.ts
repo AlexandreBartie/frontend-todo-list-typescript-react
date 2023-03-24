@@ -60,19 +60,14 @@ export class Task extends Entity<Task> implements ITask {
   }
 }
 
-export class TaskList extends EntityList<Task> {
-  public current!: Task | null
+export class TaskFactory {
+  private list: ITask[] = []
 
-  constructor(app: AppClient) {
-    super(app)
-    this.setup()
+  private add(data: ITask) {
+    this.list.push(data)
   }
 
-  add(data: ITask) {
-    super.addItem(new Task(this.app), data)
-  }
-
-  setup() {
+  build(): ITask[] {
     this.add({
       id: 1,
       title: "Wake Up",
@@ -92,7 +87,7 @@ export class TaskList extends EntityList<Task> {
       id: 3,
       title: "Take BreakFast",
       description: "Prepare coffe, eggs and bread to eat in the morning.",
-      date: Today(5)
+      date: Today(5),
     })
 
     this.add({
@@ -105,11 +100,31 @@ export class TaskList extends EntityList<Task> {
     this.add({
       id: 5,
       title: "Start Work",
-      description: "Use Pomodoro approach to be focused and your main target of the day.",
+      description:
+        "Use Pomodoro approach to be focused and your main target of the day.",
       date: Today(5),
       priorityId: ePriority.high,
     })
 
-    this.current = this.all[0]
+    return this.list
+  }
+}
+
+export class TaskList extends EntityList<Task> {
+  public current!: Task | null
+
+  constructor(app: AppClient) {
+    super(app)
+    this.add(new TaskFactory().build())
+  }
+
+  add(data: ITask | ITask[]) {
+    if (!Array.isArray(data)) {
+      data = [data]
+    }
+
+    data.map((item) => {
+      this.current = super.addItem(new Task(this.app), item)
+    })
   }
 }

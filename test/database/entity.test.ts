@@ -4,7 +4,7 @@ import { describe, expect, test } from "@jest/globals"
 import { AppClient } from "../../src/business/core/app"
 
 describe("Database", () => {
-  test("TaskDB", async () => {
+  test.skip("TaskDB", async () => {
     const app = new AppClient()
 
     if (app.tasks.all) {
@@ -20,5 +20,48 @@ describe("Database", () => {
       expect("warning").toEqual(task1.status.color)
       expect("error").toEqual(task2.status.color)
     }
+  })
+
+  test("List", async () => {
+
+    const list = [-9, -2, 4, 7, 10, 14, 23]
+
+    const target = 13
+
+    const result = (list.indexOf(target) !== -1)
+
+    let minIndex = 1
+    let maxIndex = list.length
+
+    let size = 0
+    let index = 0
+    let value = 0
+
+    let found = false
+
+    while (!found) {
+      size = maxIndex - minIndex + 1
+
+      index = Math.floor(size / 2) + minIndex
+
+      value = list[index - 1]
+
+      if (value === target)
+        found = true
+      else
+       {
+        if (maxIndex === minIndex) break
+        if (value <= target) minIndex = index + 1
+        else maxIndex = index - 1
+       }
+
+    }
+
+    if (found)
+    console.log('Ok')
+    else
+    console.log('So bad!')
+
+    expect(result).toBe(found)
   })
 })

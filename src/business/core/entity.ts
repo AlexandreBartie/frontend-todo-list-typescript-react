@@ -22,9 +22,10 @@ export class EntityList<T extends Entity<T>> extends EntityBase {
 
   readonly all: T[] = []
 
-  addItem(item: T, data: unknown) {
+  addItem(item: T, data: unknown): T {
     // const object = new <T>() //   this.createObject(T, this.app)
     this.all.push(item.set(data))
+    return item
   }
 
 }

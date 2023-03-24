@@ -88,6 +88,7 @@ export class TaskFactory {
       title: "Take BreakFast",
       description: "Prepare coffe, eggs and bread to eat in the morning.",
       date: Today(5),
+      statusId: eStatus.done,      
     })
 
     this.add({

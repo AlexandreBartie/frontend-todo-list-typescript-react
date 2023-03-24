@@ -8,6 +8,16 @@ import { WebSwitch } from "../../generic/WebSwitch"
 export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
   const { task } = props
 
+  const titleButton = (): string => {
+    if (task.isDone) return "REVERT DONE"
+    return "MAKE DONE"
+  }
+
+  const colorButton = (): 'inherit' | 'primary' | 'secondary' | 'success' | 'error' | 'info' | 'warning' => {
+    if (task.isDone) return "warning"
+    return "success"
+  }
+
   return (
     <>
       <Box
@@ -25,11 +35,10 @@ export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
         />
         <Button
           variant="contained"
-          color="success"
-          size="small"
-          sx={{ color: "#ffffff" }}
+          size='small'
+          color={colorButton()}          
         >
-          MAKE DONE
+          {titleButton()}
         </Button>
       </Box>
     </>

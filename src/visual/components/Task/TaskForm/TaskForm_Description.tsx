@@ -15,7 +15,7 @@ export function UXTaskForm_Description(props: IUXTaskForm): ReactElement {
       size="small"
       multiline
       rows={4}
-      fullWidth
+      // fullWidth
       disabled={form.disabled}
     ></TextField>
   )

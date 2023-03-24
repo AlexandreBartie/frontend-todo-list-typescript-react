@@ -1,21 +1,20 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement, useState } from "react"
 
 import { FormControlLabel, Switch } from "@mui/material"
-import { formatOnOff } from "../../../library/boolean/formatBoolean"
 
 export function WebSwitch(props: IWebSwitch): ReactElement {
-  const { label, checked, color } = props
+  const { label, color } = props
 
   // const [value, setValue] = useState(props.value)
 
- // const [checked, setChecked] = useState(formatOnOff(value))
+ const [checked, setChecked] = useState(props.checked)
 
   // useEffect(() => {
   //   setStatus(getOnOff())
   // }, [value]);
 
   function onChange(event: React.ChangeEvent<HTMLElement>, checked: boolean) {
-    console.log(formatOnOff(checked))
+    setChecked(checked)
   }
 
   return (

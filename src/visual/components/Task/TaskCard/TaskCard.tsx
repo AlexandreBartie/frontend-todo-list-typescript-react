@@ -1,4 +1,4 @@
-import React, { ReactElement } from "react"
+import React, { ReactElement, useState } from "react"
 
 import { Box, SxProps, Theme } from "@mui/material"
 
@@ -10,35 +10,39 @@ import { UXTaskCard_Footer } from "./TaskCard_Footer"
 export type IUXTaskCard = {
   task: Task
   action?: {
-    onStatusChange?: () => void
-    onMakeDone?: () => void
+    onnStatusChange?: () => void
+    onnMakeDone?: () => void
   }
 }
 
 export function UXTaskCard(props: IUXTaskCard): ReactElement {
   const { task } = props
 
+  const [status, setStatus] = useState(task.statusId)
+
   function statusChange() {
-    console.log('here#1')
     task.setChange()
-    console.log('here#2')
-    console.log(`onStatusChange: ${task.status.name}}`)
+    refreshCard()
   }
 
   function makeDone() {
     task.setDone()
-
-    console.log(`onMakeDone: ${task.status.name}`)
+    refreshCard()
   }
 
-  const taskCard = {
+  const refreshCard = () => {
+    setStatus(task.statusId)
+  }
+
+  const taskCard: IUXTaskCard = {
     task: task,
-    action: { onStatusChange: statusChange, onMakeDone: makeDone },
+    action: { onnStatusChange: statusChange, onnMakeDone: makeDone },
   }
 
   return (
     <>
       <Box
+        key={status}
         display="flex"
         width="100%"
         justifyContent="flex-start"

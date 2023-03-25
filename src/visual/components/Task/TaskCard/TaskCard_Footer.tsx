@@ -1,4 +1,4 @@
-import React, { ReactElement, useEffect, useState } from "react"
+import React, { ReactElement } from "react"
 
 import { Box, Button } from "@mui/material"
 
@@ -10,25 +10,6 @@ import { Task } from "../../../../business/base/task"
 
 export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
   const { task } = props
-
-  const [titleButton, setTitleButton] = useState("")
-  const [colorButton, setColorButton] = useState(getColorButton(task))
-  const [colorFontButton, setColorFontButton] = useState("")
-
-  useEffect(() => {
-    refreshButton()
-  }, [titleButton])
-
-  function makeDone() {
-    props.action?.onMakeDone
-    refreshButton()
-  }
-
-  function refreshButton() {
-    setTitleButton(getTitleButton(task))
-    setColorButton(getColorButton(task))
-    setColorFontButton(getColorFontButton(task))
-  }
 
   return (
     <>
@@ -42,11 +23,11 @@ export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
         <Button
           variant="contained"
           size="small"
-          color={colorButton}
-          onClick={makeDone}
-          sx={{ color: colorFontButton }}
+          color={getColorButton(task)}
+          onClick={props.action?.onnMakeDone}
+          sx={{ color: getColorFontButton(task) }}
         >
-          {titleButton}
+          {getTitleButton(task)}
         </Button>
       </Box>
     </>
@@ -69,7 +50,7 @@ const switchSettings = (props: IUXTaskCard): IWebSwitch => {
     checked: task.isDoing || task.isDone,
     disabled: task.isDone,
     color: task.status.colorBase,
-    onChange: props.action?.onStatusChange,
+    onChange: props.action?.onnStatusChange,
   }
 }
 

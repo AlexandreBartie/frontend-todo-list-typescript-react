@@ -23,11 +23,11 @@ export class Task extends Entity<Task> implements ITask {
   priorityId = ePriority.normal
 
   get isDoing(): boolean {
-    return this.statusId === eStatus.doing
+    return this.statusId == eStatus.doing
   }
 
   get isDone(): boolean {
-    return this.statusId === eStatus.done
+    return this.statusId == eStatus.done
   }
 
   get status(): Status {
@@ -49,7 +49,7 @@ export class Task extends Entity<Task> implements ITask {
     if (this.isDone)
       this.statusId = eStatus.doing
     else
-      this.statusId = eStatus.todo
+      this.statusId = eStatus.done
   }
 
   set(task: ITask): Task {

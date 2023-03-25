@@ -11,3 +11,12 @@ export function formatDate(date: Date): string {
 export function formatToday(): string {
   return formatDateLong(new Date())
 }
+
+export function formatNow(): string {
+  const currentDate: Date = new Date()
+  const hours: number = currentDate.getHours()
+  const minutes: number = currentDate.getMinutes()
+  const seconds: number = currentDate.getSeconds()
+  const currentTime = `${hours}:${minutes}:${seconds}`
+  return currentTime
+}

@@ -5,7 +5,9 @@ import { UXTaskCounter } from "./TaskCounter"
 
 import { StatusList } from "../../../../business/base/status"
 
-export type IUXTaskSummary = { list: StatusList }
+export type IUXTaskSummary = {
+  list: StatusList
+}
 
 export function UXTaskSummary(props: IUXTaskSummary): ReactElement {
   const { list } = props
@@ -32,4 +34,3 @@ export function UXTaskSummary(props: IUXTaskSummary): ReactElement {
     </>
   )
 }
-

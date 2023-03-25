@@ -4,11 +4,11 @@ import { Box, Button } from "@mui/material"
 
 import { IWebSwitch, WebSwitch } from "../../generic/WebSwitch"
 
-import { IUXTaskCard } from "./TaskCard"
+import { IUXTaskCard_Master } from "./TaskCard"
 
 import { Task } from "../../../../business/base/task"
 
-export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
+export function UXTaskCard_Footer(props: IUXTaskCard_Master): ReactElement {
   const { task } = props
 
   return (
@@ -24,7 +24,7 @@ export function UXTaskCard_Footer(props: IUXTaskCard): ReactElement {
           variant="contained"
           size="small"
           color={getColorButton(task)}
-          onClick={props.action?.onnMakeDone}
+          onClick={props.action.onMakeDone}
           sx={{ color: getColorFontButton(task) }}
         >
           {getTitleButton(task)}
@@ -43,14 +43,14 @@ type ColorButton =
   | "info"
   | "warning"
 
-const switchSettings = (props: IUXTaskCard): IWebSwitch => {
+const switchSettings = (props: IUXTaskCard_Master): IWebSwitch => {
   const { task } = props
   return {
     label: task.status.name,
     checked: task.isDoing || task.isDone,
     disabled: task.isDone,
     color: task.status.colorBase,
-    onChange: props.action?.onnStatusChange,
+    onChange: props.action.onStatusChange,
   }
 }
 

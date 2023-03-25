@@ -2,11 +2,11 @@ import React, { ReactElement } from "react"
 
 import { Box, Chip, Typography } from "@mui/material"
 
-import { IUXTaskCard } from "./TaskCard"
+import { IUXTaskCard_Master } from "./TaskCard"
 
 import { formatDate } from "../../../../library/date/formatDate"
 
-export function UXTaskCard_Header(props: IUXTaskCard): ReactElement {
+export function UXTaskCard_Header(props: IUXTaskCard_Master): ReactElement {
   const { task } = props
 
   return (

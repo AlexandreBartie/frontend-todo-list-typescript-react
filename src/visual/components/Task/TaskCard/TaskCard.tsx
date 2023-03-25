@@ -7,11 +7,18 @@ import { UXTaskCard_Header } from "./TaskCard_Header"
 import { UXTaskCard_Description } from "./TaskCard_Description"
 import { UXTaskCard_Footer } from "./TaskCard_Footer"
 
+export type IUXTaskCard_Master = {
+  task: Task
+  action: {
+    onStatusChange: () => void
+    onMakeDone: () => void
+  }
+}
+
 export type IUXTaskCard = {
   task: Task
-  action?: {
-    onnStatusChange?: () => void
-    onnMakeDone?: () => void
+  action: {
+    onTaskChange: () => void
   }
 }
 
@@ -32,11 +39,12 @@ export function UXTaskCard(props: IUXTaskCard): ReactElement {
 
   const refreshCard = () => {
     setStatus(task.statusId)
+    props.action.onTaskChange()
   }
 
-  const taskCard: IUXTaskCard = {
+  const taskCard: IUXTaskCard_Master = {
     task: task,
-    action: { onnStatusChange: statusChange, onnMakeDone: makeDone },
+    action: { onStatusChange: statusChange, onMakeDone: makeDone },
   }
 
   return (

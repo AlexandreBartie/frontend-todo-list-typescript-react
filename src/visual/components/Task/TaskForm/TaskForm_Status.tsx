@@ -15,7 +15,7 @@ export function UXTaskForm_Status(props: IUXTaskForm): ReactElement {
         name: status.name,
         label: status.label,
         disabled: form.disabled,
-        items: status.items,
+        items: status.all,
       }}
     />
   )

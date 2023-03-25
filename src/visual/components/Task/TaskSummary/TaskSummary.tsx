@@ -3,9 +3,9 @@ import React, { ReactElement } from "react"
 import { Grid } from "@mui/material"
 import { UXTaskCounter } from "./TaskCounter"
 
-import { Status } from "../../../../business/base/status"
+import { StatusList } from "../../../../business/base/status"
 
-export type IUXTaskSummary = { list: Status[] }
+export type IUXTaskSummary = { list: StatusList }
 
 export function UXTaskSummary(props: IUXTaskSummary): ReactElement {
   const { list } = props
@@ -22,7 +22,7 @@ export function UXTaskSummary(props: IUXTaskSummary): ReactElement {
         xs={12}
         mb={8}
       >
-        {list.map((item) => (
+        {list.all.map((item) => (
           <UXTaskCounter
             key={item.id}
             {...{ title: item.name, count: item.counter, color: item.color }}

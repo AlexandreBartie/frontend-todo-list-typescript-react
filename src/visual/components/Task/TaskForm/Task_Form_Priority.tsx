@@ -14,7 +14,7 @@ export function UXTaskForm_Priority(props: IUXTaskForm): ReactElement {
       {...{
         name: priority.name,
         label: priority.label,
-        items: priority.items,
+        items: priority.all,
         disabled: form.disabled,
       }}
     />

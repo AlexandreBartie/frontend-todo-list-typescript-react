@@ -30,21 +30,26 @@ export class Task extends Entity<Task> implements ITask {
     return this.statusId === eStatus.done
   }
 
-  private _status!: Status
-  private _priority!: Priority
-
   get status(): Status {
-    if (this._status === undefined) {
-      this._status = this.app.domain.getStatus(this.statusId)
-    }
-    return this._status
+    return this.app.domain.getStatus(this.statusId)
   }
 
   get priority(): Priority {
-    if (this._priority === undefined) {
-      this._priority = this.app.domain.getPriority(this.priorityId)
-    }
-    return this._priority
+    return this.app.domain.getPriority(this.priorityId)
+  }
+
+  setChange(){
+    if (this.isDoing)
+      this.statusId = eStatus.todo
+    else
+      this.statusId = eStatus.doing
+  }
+
+  setDone(){
+    if (this.isDone)
+      this.statusId = eStatus.doing
+    else
+      this.statusId = eStatus.todo
   }
 
   set(task: ITask): Task {
@@ -104,6 +109,15 @@ export class TaskFactory {
       description:
         "Use Pomodoro approach to be focused and your main target of the day.",
       date: Today(5),
+      priorityId: ePriority.high,
+    })
+
+    this.add({
+      id: 6,
+      title: "Play games",
+      description:
+        "Select roblox or other plataform to play your prefered game.",
+      date: Today(2),
       priorityId: ePriority.high,
     })
 

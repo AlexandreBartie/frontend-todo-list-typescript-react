@@ -17,7 +17,7 @@ export function UXTaskPage_Central(props: IUXTaskPage_Central): ReactElement {
           <h2>{"Current Status of your Tasks"}</h2>
         </Box>
         <Grid container display="flex" justifyContent="center">
-          <UXTaskSummary list={app.domain.statusList.items} />
+          <UXTaskSummary list={app.domain.statusList} />
           <UXTaskView tasks={app.tasks} />
         </Grid>
       </Grid>

@@ -34,7 +34,6 @@ export function UXTaskCounter(props: UXTaskCounter_PropTypes): ReactElement {
 }
 
 const taskCounterSettings = (color: string): SxProps<Theme> => {
-  console.log(color)
   return {
     backgroundColor: "transparent",
     width: "96px",

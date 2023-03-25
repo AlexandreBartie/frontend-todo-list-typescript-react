@@ -3,24 +3,21 @@ import React, { ReactElement, useState } from "react"
 import { FormControlLabel, Switch } from "@mui/material"
 
 export function WebSwitch(props: IWebSwitch): ReactElement {
-  const { label, color } = props
+  const { label, color, disabled } = props
 
-  // const [value, setValue] = useState(props.value)
+  const [checked, setChecked] = useState(props.checked)
 
- const [checked, setChecked] = useState(props.checked)
-
-  // useEffect(() => {
-  //   setStatus(getOnOff())
-  // }, [value]);
-
-  function onChange(event: React.ChangeEvent<HTMLElement>, checked: boolean) {
+  function changeValue(event: React.ChangeEvent<HTMLElement>, checked: boolean) {
     setChecked(checked)
+
+    if (props.onChange)
+      props.onChange(checked)
   }
 
   return (
     <FormControlLabel
       label={label}
-      control={<Switch onChange={onChange} checked={checked} color={color} />}
+      control={<Switch onChange={changeValue} checked={checked} color={color} disabled={disabled} />}
     />
   )
 }
@@ -28,5 +25,7 @@ export function WebSwitch(props: IWebSwitch): ReactElement {
 export interface IWebSwitch {
   label: string
   checked: boolean
+  disabled?: boolean
   color?: 'primary' | 'secondary' | 'error' | 'info' | 'success' | 'warning' | 'default'
+  onChange?:(checked: boolean) => void
 }

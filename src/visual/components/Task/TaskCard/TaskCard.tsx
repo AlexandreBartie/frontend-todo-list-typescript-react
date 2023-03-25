@@ -7,10 +7,34 @@ import { UXTaskCard_Header } from "./TaskCard_Header"
 import { UXTaskCard_Description } from "./TaskCard_Description"
 import { UXTaskCard_Footer } from "./TaskCard_Footer"
 
-export type IUXTaskCard = { task: Task }
+export type IUXTaskCard = {
+  task: Task
+  action?: {
+    onStatusChange?: () => void
+    onMakeDone?: () => void
+  }
+}
 
 export function UXTaskCard(props: IUXTaskCard): ReactElement {
   const { task } = props
+
+  function statusChange() {
+    console.log('here#1')
+    task.setChange()
+    console.log('here#2')
+    console.log(`onStatusChange: ${task.status.name}}`)
+  }
+
+  function makeDone() {
+    task.setDone()
+
+    console.log(`onMakeDone: ${task.status.name}`)
+  }
+
+  const taskCard = {
+    task: task,
+    action: { onStatusChange: statusChange, onMakeDone: makeDone },
+  }
 
   return (
     <>
@@ -23,9 +47,9 @@ export function UXTaskCard(props: IUXTaskCard): ReactElement {
         p={4}
         sx={taskCardSettings(task.priority.color)}
       >
-        <UXTaskCard_Header task={task} />
-        <UXTaskCard_Description task={task} />
-        <UXTaskCard_Footer task={task} />
+        <UXTaskCard_Header {...taskCard} />
+        <UXTaskCard_Description {...taskCard} />
+        <UXTaskCard_Footer {...taskCard} />
       </Box>
     </>
   )
